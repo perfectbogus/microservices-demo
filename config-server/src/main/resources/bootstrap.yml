@@ -5,6 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: file://Users/joseescobar/Documents/projects/microservices-demo/config-server-repository
+          uri: https://github.com/perfectbogus/config-server-repository.git
           clone-on-start: true
+          username: war_army_10@hotmail.com
+          password: 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
       fail-fast: true
