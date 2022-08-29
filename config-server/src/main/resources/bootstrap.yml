@@ -10,3 +10,7 @@ spring:
           username: war_army_10@hotmail.com
           password: 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
       fail-fast: true
+  security:
+    user:
+      name: spring_cloud_user
+      password: springCloud_Pwd!
