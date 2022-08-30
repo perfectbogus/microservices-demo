@@ -7,4 +7,8 @@ spring:
     config:
       name: twitter-to-kafka-service,config-client
       username: spring_cloud_user
-      password: springCloud_Pwd!
+      password: ENC(/H00hL3vddqajjxpl2BuDsdSNfYn8yDrIOy4G9XPRRqkZewQnfrMhyMbeBY2Rh8a5YX2xQs6ZT5Xvf8H6o8Ydw==)
+
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD}
