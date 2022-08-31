@@ -8,10 +8,13 @@ spring:
           uri: https://github.com/perfectbogus/config-server-repository.git
           clone-on-start: true
           username: war_army_10@hotmail.com
-          password: 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
+          password: '{cipher}20208420463053bac62ae3f2b003ef5e1dd22758e5918043e6de594727e858fe8d181ee9e072dee9190d9029e6cbc153eead1d21cebed7bc6f1d69e4ecf64ea6'
           default-label: dev
       fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: springCloud_Pwd!
+      password: '{cipher}f3e4a2b93303c2d184bcff6ffde381535466e9ba018353de2445e2906afde7c77a17c85a12755b767eceb9478695c97e'
+
+encrypt:
+  key: ${ENCRYPT_KEY}
