@@ -9,6 +9,7 @@ spring:
           clone-on-start: true
           username: war_army_10@hotmail.com
           password: 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
+          default-label: dev
       fail-fast: true
   security:
     user:
