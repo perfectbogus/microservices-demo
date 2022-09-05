@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@ConditionalOnProperty(name = "elastic-config.is-repository", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "elastic-config", name = "is-repository", havingValue = "true", matchIfMissing = true)
 public class TwitterElasticRepositoryIndexClient implements ElasticIndexClient<TwitterIndexModel> {
 
   private static final Logger LOG = LoggerFactory.getLogger(TwitterElasticRepositoryIndexClient.class);

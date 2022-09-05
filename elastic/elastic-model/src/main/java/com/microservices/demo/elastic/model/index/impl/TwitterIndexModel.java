@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Builder
 @Data
-@Document(indexName = "${elasticConfigData.indexName}")
+@Document(indexName = "#{elasticConfigData.indexName}")
 public class TwitterIndexModel implements IndexModel {
 
   @JsonProperty
@@ -29,8 +29,4 @@ public class TwitterIndexModel implements IndexModel {
   @JsonProperty
   private LocalDateTime createdAt;
 
-  @Override
-  public String getId() {
-    return null;
-  }
 }

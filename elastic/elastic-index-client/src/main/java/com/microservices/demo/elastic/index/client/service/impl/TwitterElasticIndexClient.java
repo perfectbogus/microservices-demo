@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(name = "elastic-config.is-repository", havingValue = "false")
+@ConditionalOnProperty(prefix = "elastic-config", name = "is-repository", havingValue = "false")
 public class TwitterElasticIndexClient implements ElasticIndexClient<TwitterIndexModel> {
 
   private static final Logger LOG = LoggerFactory.getLogger(TwitterElasticIndexClient.class);
@@ -29,16 +29,15 @@ public class TwitterElasticIndexClient implements ElasticIndexClient<TwitterInde
     this.elasticIndexUtil = elasticIndexUtil;
   }
 
-
   @Override
   public List<String> save(List<TwitterIndexModel> documents) {
     List<IndexQuery> indexQueries = elasticIndexUtil.getIndexQueries(documents);
-    List<String> documentsIds = elasticsearchOperations.bulkIndex(
+    List<String> documentIds = elasticsearchOperations.bulkIndex(
             indexQueries,
             IndexCoordinates.of(elasticConfigData.getIndexName())
     );
     LOG.info("Documents indexed successfully with type: {} and ids: {}", TwitterIndexModel.class.getName()
-    , documentsIds);
-    return documentsIds;
+    , documentIds);
+    return documentIds;
   }
 }
