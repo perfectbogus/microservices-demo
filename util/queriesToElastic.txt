@@ -1,0 +1,23 @@
+{
+    "query": {
+        "term": {
+            "text.keyword": "multi word"
+        }
+    }
+}
+
+{
+    "query": {
+        "wildcard": {
+            "text": "multi*"
+        }
+    }
+}
+
+{
+    "query": {
+        "query_string": {
+            "query": "text:te*"
+        }
+    }
+}
