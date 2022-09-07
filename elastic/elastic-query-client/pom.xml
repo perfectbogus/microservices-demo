@@ -30,6 +30,10 @@
             <groupId>com.microservices.demo</groupId>
             <artifactId>elastic-model</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.microservices.demo</groupId>
+            <artifactId>common-util</artifactId>
+        </dependency>
 
     </dependencies>
 
