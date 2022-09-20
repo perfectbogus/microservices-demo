@@ -10,5 +10,5 @@ public class ElasticQueryServiceApplicationTests {
   public void contextLoads() {
 
   }
-  
+
 }
