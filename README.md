@@ -11,3 +11,8 @@ for microservice, twitter-to-kafka-service
 - Comment proxy on m2 settings
 - Disable proxy on docker
   - this will cause SSL errors on the repository config server
+To Start Docker compose services
+  - go to docker-compose folder and execute
+```
+docker compose up
+```
