@@ -6,3 +6,8 @@
 the build-image goal to create docker image with mvn install command
 - Check the services.yml file under docker-compose folder which includes the compose definition 
 for microservice, twitter-to-kafka-service
+
+# If you are on the Mac remember
+- Comment proxy on m2 settings
+- Disable proxy on docker
+  - this will cause SSL errors on the repository config server
