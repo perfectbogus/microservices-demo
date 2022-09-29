@@ -46,6 +46,7 @@
 		<spring-cloud.version>2.2.6.RELEASE</spring-cloud.version>
 		<spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
 		<elastic.version>7.9.1</elastic.version>
+		<open-api.version>1.5.0</open-api.version>
 	</properties>
 
 	<repositories>
@@ -217,6 +218,11 @@
 				<artifactId>snappy-java</artifactId>
 				<version>1.1.8.4</version>
 				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${open-api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.confluent</groupId>
