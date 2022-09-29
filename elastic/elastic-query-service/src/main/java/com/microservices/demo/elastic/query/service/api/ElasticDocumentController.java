@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +37,14 @@ public class ElasticDocumentController {
   }
 
   @GetMapping("/{id}")
-  public @ResponseBody ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable String id) {
+  public @ResponseBody ResponseEntity<ElasticQueryServiceResponseModel> getDocumentById(@PathVariable @NotEmpty String id) {
     ElasticQueryServiceResponseModel elasticQueryServiceResponseModel = elasticQueryService.getDocumentById(id);
     LOG.debug("Elasticsearch return document with id {}", id);
     return ResponseEntity.ok(elasticQueryServiceResponseModel);
   }
 
   @PostMapping("/get-document-by-text")
-  public @ResponseBody ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentsByText(@RequestBody ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
+  public @ResponseBody ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentsByText(@RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
     List<ElasticQueryServiceResponseModel> response =
             elasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText());
     LOG.info("Elasticsearch return {} of documents", response.size());
