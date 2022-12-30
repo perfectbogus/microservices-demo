@@ -16,3 +16,22 @@ To Start Docker compose services
 ```
 docker compose up
 ```
+
+# COLIMA Changes
+```shell
+colima start
+```
+
+# Add Docker Host Variable
+```shell
+export DOCKER_HOST=unix:///Users/joseescobar/.colima/default/docker.sock
+```
+
+# You can get the socket using:
+```shell
+colima status
+```
+
+## Troubleshooting
+if you get an error on maven execution about docker is no up
+remember start colima and add the DOCKER_HOST

@@ -68,16 +68,21 @@ services:
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
+    user: root
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-service:
     image: ${GROUP_ID}/elastic.query.service:${SERVICE_VERSION:-latest}
     ports:
-      - "5008":"5008"
-      - "8183":"8183"
+      - "5008:5008"
+      - "8183:8183"
     volumes:
       - "./docker-logs:/workspace/elastic-query-service/logs"
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+    user: root
+    entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
+      - config-server
       - kafka-to-elastic-service
       - elastic-1
       - elastic-2
