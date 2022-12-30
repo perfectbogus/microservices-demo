@@ -126,6 +126,7 @@ public class TwitterV2StreamHelper {
         StringEntity body = new StringEntity(getFormattedString("{\"add\": [%s]}", rules));
         httpPost.setEntity(body);
         HttpResponse response = httpClient.execute(httpPost);
+        LOG.info("Create Rule Response: {}", response.toString());
         HttpEntity entity = response.getEntity();
         if (null != entity) {
             System.out.println(EntityUtils.toString(entity, "UTF-8"));
