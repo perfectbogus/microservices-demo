@@ -8,6 +8,6 @@ public class ElasticQueryWebClientApplicationTests {
 
   @Test
   public void contextLoads() {
-    
+
   }
 }
