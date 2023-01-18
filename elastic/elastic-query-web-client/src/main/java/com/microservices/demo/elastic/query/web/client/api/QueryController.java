@@ -30,7 +30,8 @@ public class QueryController {
 
   @GetMapping("/home")
   public String home(Model model) {
-    model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
+    model.addAttribute("elasticQueryWebClientRequestModel",
+            ElasticQueryWebClientRequestModel.builder().build());
     return "home";
   }
 
@@ -44,7 +45,8 @@ public class QueryController {
             .build());
     model.addAttribute("elasticQueryWebClientResponseModels", responseModels);
     model.addAttribute("searchText", requestModel.getText());
-    model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
+    model.addAttribute("elasticQueryWebClientRequestModel",
+            ElasticQueryWebClientRequestModel.builder().build());
     return "home";
   }
 
