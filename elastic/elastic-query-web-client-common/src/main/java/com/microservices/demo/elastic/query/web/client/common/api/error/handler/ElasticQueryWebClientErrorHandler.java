@@ -1,18 +1,17 @@
-package com.microservices.demo.elastic.query.web.client.api.error.handler;
+package com.microservices.demo.elastic.query.web.client.common.api.error.handler;
 
-import com.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
-import org.hibernate.validator.internal.properties.Field;
+import com.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
+import com.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ import java.util.Map;
 public class ElasticQueryWebClientErrorHandler {
   private static final Logger LOG = LoggerFactory.getLogger(ElasticQueryWebClientErrorHandler.class);
 
-  @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+  @ExceptionHandler(AccessDeniedException.class)
   public String handler(AccessDeniedException e, Model model) {
     LOG.error("Access denied exception!", e);
     model.addAttribute("error", HttpStatus.UNAUTHORIZED.getReasonPhrase());

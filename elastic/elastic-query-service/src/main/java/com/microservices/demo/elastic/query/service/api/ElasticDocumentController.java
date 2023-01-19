@@ -1,8 +1,8 @@
 package com.microservices.demo.elastic.query.service.api;
 
 import com.microservices.demo.elastic.query.service.business.ElasticQueryService;
-import com.microservices.demo.elastic.query.service.model.ElasticQueryServiceRequestModel;
-import com.microservices.demo.elastic.query.service.model.ElasticQueryServiceResponseModel;
+import com.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
+import com.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.demo.elastic.query.service.model.ElasticQueryServiceResponseModelV2;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -94,7 +94,8 @@ public class ElasticDocumentController {
           @ApiResponse(responseCode = "500", description = "Internal Server Error")
   })
   @PostMapping("/get-document-by-text")
-  public @ResponseBody ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentsByText(@RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
+  public @ResponseBody ResponseEntity<List<ElasticQueryServiceResponseModel>> getDocumentsByText(
+          @RequestBody @Valid ElasticQueryServiceRequestModel elasticQueryServiceRequestModel) {
     List<ElasticQueryServiceResponseModel> response =
             elasticQueryService.getDocumentByText(elasticQueryServiceRequestModel.getText());
     LOG.info("Elasticsearch return {} of documents on port {}", response.size(), port);

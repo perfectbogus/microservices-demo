@@ -16,6 +16,8 @@
         <module>elastic-config</module>
         <module>elastic-index-client</module>
         <module>elastic-query-web-client</module>
+        <module>elastic-query-service-common</module>
+        <module>elastic-query-web-client-common</module>
     </modules>
 
 
