@@ -1,5 +1,6 @@
 package com.microservices.demo.reactive.elastic.query.service.api;
 
+import com.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceRequestModel;
 import com.microservices.demo.elastic.query.service.common.model.ElasticQueryServiceResponseModel;
 import com.microservices.demo.reactive.elastic.query.service.business.ElasticQueryService;
 import org.slf4j.Logger;
@@ -29,7 +30,7 @@ public class ElasticDocumentController {
           consumes = MediaType.APPLICATION_JSON_VALUE
   )
   public Flux<ElasticQueryServiceResponseModel> getDocumentByText(
-          @RequestBody @Valid ElasticQueryServiceResponseModel requestModel) {
+          @RequestBody @Valid ElasticQueryServiceRequestModel requestModel) {
     Flux<ElasticQueryServiceResponseModel> response = elasticQueryService.getDocumentByText(requestModel.getText());
     response = response.log();
     LOG.info("Returning from Query reactive service for text {}", requestModel.getText());
