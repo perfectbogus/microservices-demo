@@ -4,8 +4,6 @@ import com.microservices.demo.elastic.query.web.client.common.model.ElasticQuery
 import com.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientResponseModel;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
-
 public interface ElasticQueryWebClient {
 
   Flux<ElasticQueryWebClientResponseModel> getDataByText(ElasticQueryWebClientRequestModel requestModel);
