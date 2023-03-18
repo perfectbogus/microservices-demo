@@ -8,7 +8,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=S3cur3dP@ssw0rd
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=changeme
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_ROOT_PASSWORD=changeme
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       interval: 5s
