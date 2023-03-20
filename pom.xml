@@ -47,6 +47,7 @@
 		<spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
 		<elastic.version>7.9.1</elastic.version>
 		<open-api.version>1.5.0</open-api.version>
+		<mysql.version>8.0.32</mysql.version>
 	</properties>
 
 	<repositories>
@@ -282,7 +283,7 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.32</version>
+				<version>${mysql.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
