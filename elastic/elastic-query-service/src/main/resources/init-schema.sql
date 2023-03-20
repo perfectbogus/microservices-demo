@@ -35,4 +35,3 @@ CREATE TABLE user_permissions
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
-
