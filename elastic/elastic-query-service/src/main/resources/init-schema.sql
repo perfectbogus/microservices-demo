@@ -25,6 +25,14 @@ CREATE TABLE user_permissions
     user_id varchar(36) NOT NULL,
     document_id VARCHAR(36) NOT NULL,
     user_permission_id VARCHAR(36) NOT NULL,
-    permission_type VARCHAR(50)
+    permission_type VARCHAR(50),
+    CONSTRAINT document_fk FOREIGN KEY (document_id)
+        REFERENCES documents (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT user_fk FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
