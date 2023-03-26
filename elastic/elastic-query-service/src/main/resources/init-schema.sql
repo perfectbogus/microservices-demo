@@ -1,4 +1,6 @@
+DROP TABLE IF EXISTS user_permissions CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS documents CASCADE;
 
 CREATE TABLE users
 (
@@ -9,16 +11,12 @@ CREATE TABLE users
     CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS documents CASCADE;
-
 CREATE TABLE documents
 (
     id varchar(36) NOT NULL,
     document_id varchar(36) NOT NULL,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 );
-
-DROP TABLE IF EXISTS user_permissions CASCADE;
 
 CREATE TABLE user_permissions
 (

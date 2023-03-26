@@ -1,0 +1,6 @@
+# Keycloak routes
+http://localhost:8184/elastic-query-web-client/login/oauth2/code/keycloak
+http://localhost:8184/elastic-query-web-client/
+http://localhost:8184
+
+curl -X POST -d 'grant_type=password&username=app_user&password=app_user!&client_id=elastic-query-web-client&client_secret=ee8f6ce1-7114-4295-901d-893ed1fbe559' http://localhost:8081/auth/realms/microservices-realm/protocol/openid-connect/token

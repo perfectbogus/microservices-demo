@@ -5,12 +5,14 @@ import com.microservices.demo.elastic.query.service.common.model.ElasticQuerySer
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+@Component
 public class QueryServicePermissionEvaluator implements PermissionEvaluator {
 
     private static final String SUPER_USER_ROLE = "APP_SUPER_USER_ROLE";
