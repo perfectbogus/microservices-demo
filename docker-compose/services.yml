@@ -159,7 +159,7 @@ services:
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
       - config-server
-      #- kafka-to-elastic-service
+      - kafka-to-elastic-service
       - elastic-1
       - elastic-2
       - elastic-3
@@ -175,7 +175,7 @@ services:
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/auth/realms/microservices-realm"
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/auth/realms/microservices-realm/protocol/openid-connect/certs"
       - "SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/keycloak"
-      - "SPRING_DATASOURCE_URL_INITIALIZATION-MODE=always"
+      - "SPRING_DATASOURCE_URL_INITIALIZATION-MODE=never"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
     networks:
       - ${GLOBAL_NETWORK:-services}
