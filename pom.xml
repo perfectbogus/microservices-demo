@@ -18,6 +18,7 @@
         <module>common-util</module>
 		<module>elastic/elastic-query-service</module>
         <module>elastic/elastic-query-web-client-2</module>
+        <module>kafka-streams-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -49,6 +50,9 @@
 		<elastic.version>7.9.1</elastic.version>
 		<open-api.version>1.5.0</open-api.version>
 		<mysql.version>8.0.32</mysql.version>
+		<kafka-streams.version>2.6.0</kafka-streams.version>
+		<kafka-streams-avro-serde.version>5.5.1</kafka-streams-avro-serde.version>
+		<kafka-clients.version>2.6.0</kafka-clients.version>
 	</properties>
 
 	<repositories>
@@ -285,6 +289,23 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.confluent</groupId>
+				<artifactId>kafka-streams-avro-serde</artifactId>
+				<version>${kafka-streams-avro-serde.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka-streams</artifactId>
+				<version>${kafka-streams.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka-clients</artifactId>
+				<version>${kafka-clients.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
