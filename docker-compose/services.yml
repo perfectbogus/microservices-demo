@@ -1,5 +1,23 @@
 version: '3.7'
 services:
+  mysql:
+    image: mysql
+    hostname: mysql
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=changeme
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_ROOT_PASSWORD=changeme
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      retries: 5
+    networks:
+      - ${GLOBAL_NETWORK:-services}
 
   keycloak-authorization-server:
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
@@ -19,24 +37,6 @@ services:
       - "DB_USER=keycloak"
       - "DB_PASSWORD=changeme"
       - "KEYCLOAK_IMPORT=/opt/keycloak/data/import"
-    networks:
-      - ${GLOBAL_NETWORK:-services}
-  mysql:
-    image: mysql
-    hostname: mysql
-    container_name: mysql
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_USER=keycloak
-      - MYSQL_PASSWORD=changeme
-      - MYSQL_DATABASE=keycloak
-      - MYSQL_ROOT_PASSWORD=changeme
-    healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
-      interval: 5s
-      retries: 5
     networks:
       - ${GLOBAL_NETWORK:-services}
     
