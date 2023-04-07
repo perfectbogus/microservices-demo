@@ -3,7 +3,7 @@ http://localhost:8184/elastic-query-web-client/login/oauth2/code/keycloak
 http://localhost:8184/elastic-query-web-client/
 http://localhost:8184
 
-curl -X POST -d 'grant_type=password&username=app_user&password=app_user!&client_id=elastic-query-web-client&client_secret=ee8f6ce1-7114-4295-901d-893ed1fbe559' http://localhost:8081/auth/realms/microservices-realm/protocol/openid-connect/token
+curl -X POST -d 'grant_type=password&username=app_super_user&password=super_user&client_id=elastic-query-service&client_secret=ee8f6ce1-7114-4295-901d-893ed1fbe559' http://localhost:8081/auth/realms/microservices-realm/protocol/openid-connect/token
 
 spring encrypt <word to encrypt> --key <key>
 
@@ -14,3 +14,6 @@ UPDATE user_permissions SET user_id = '50c77f9d-b436-415f-8687-1d0dd32453a3' whe
 UPDATE users SET id = '11704298-5bdf-49bc-bd74-f837edc3dd66' WHERE username = 'app_admin';
 UPDATE users SET id = '0473da36-7e99-4400-8f13-6b6065d857e0' WHERE username = 'app_super_user';
 SET foreign_key_checks = 1;
+
+
+curl -X POST -d 'grant_type=password&username=app_super_user&password=super_user&client_id=elastic-query-service&client_secret=d1670ee6-f382-4b93-88c5-820c6d6b18af' http://localhost:9081/auth/realms/microservices-realm/protocol/openid-connect/token
