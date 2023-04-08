@@ -1,12 +1,11 @@
 package com.microservices.demo.analytics.service.dataaccess.entity.repository;
 
 import com.microservices.demo.analytics.service.dataaccess.entity.impl.AnalyticsEntity;
-import com.microservices.demo.analytics.service.dataaccess.entity.repository.AnalyticsCustomRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.UUID;
 
