@@ -1,5 +1,6 @@
 package com.microservices.demo.analytics.service.business.impl;
 
+import com.microservices.demo.analytics.service.business.KafkaConsumer;
 import com.microservices.demo.analytics.service.dataaccess.entity.impl.AnalyticsEntity;
 import com.microservices.demo.analytics.service.dataaccess.entity.repository.AnalyticsRepository;
 import com.microservices.demo.analytics.service.transformer.AvroToDbEntityModelTransformer;
