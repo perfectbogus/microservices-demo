@@ -17,3 +17,11 @@ SET foreign_key_checks = 1;
 
 
 curl -X POST -d 'grant_type=password&username=app_super_user&password=super_user&client_id=elastic-query-service&client_secret=d1670ee6-f382-4b93-88c5-820c6d6b18af' http://localhost:9081/auth/realms/microservices-realm/protocol/openid-connect/token
+
+
+
+INSERT INTO users (id, username, firstname, lastname)
+values ('754c9e52-1096-498a-81e8-5a39e6b9c644', 'app_super_user', 'Super', 'User');
+
+INSERT INTO user_permissions (user_permission_id, user_id, document_id, permission_type)
+VALUES (UUID(), '754c9e52-1096-498a-81e8-5a39e6b9c644', 'ca314dc6-56a5-43d0-9c09-70029d07a9f1', 'READ');

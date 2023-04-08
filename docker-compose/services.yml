@@ -143,7 +143,7 @@ services:
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/auth/realms/microservices-realm"
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/auth/realms/microservices-realm/protocol/openid-connect/certs"
       - "SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/keycloak"
-      - "SPRING_DATASOURCE_URL_INITIALIZATION-MODE=always"
+      - "SPRING_DATASOURCE_URL_INITIALIZATION-MODE=never"
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/kafka-streams-service/get-word-count-by-word/{word}"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
     networks:

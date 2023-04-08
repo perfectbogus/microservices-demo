@@ -19,6 +19,7 @@
 		<module>elastic/elastic-query-service</module>
         <module>elastic/elastic-query-web-client-2</module>
         <module>kafka-streams-service</module>
+        <module>analytics-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
