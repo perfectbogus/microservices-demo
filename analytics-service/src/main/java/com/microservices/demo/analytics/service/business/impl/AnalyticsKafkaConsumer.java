@@ -19,6 +19,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvroModel> {
@@ -44,14 +45,14 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
     public void onAppStarted(ApplicationStartedEvent event) {
         kafkaAdminClient.checkTopicsCreated();
         LOG.info("Topics with name {} is ready for operations!", kafkaConfig.getTopicNamesToCreate().toArray());
-        kafkaListenerEndpointRegistry.getListenerContainer("twitterAnalyticsTopicListener").start();
+        Objects.requireNonNull(kafkaListenerEndpointRegistry.getListenerContainer("twitterAnalyticsTopicListener")).start();
     }
 
     @Override
     @KafkaListener(id = "twitterAnalyticsTopicListener", topics = "${kafka-config.topic-name}", autoStartup = "false")
     public void receive(@Payload List<TwitterAnalyticsAvroModel> messages,
-                        @Header(KafkaHeaders.RECEIVED_KEY) List<Long> keys,
-                        @Header(KafkaHeaders.RECEIVED_PARTITION) List<Integer> partitions,
+                        @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
+                        @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
         LOG.info("{} number of message received with keys {}, partitions {} and offsets {}, sending it to database: Thread id {}",
                 messages.size(), keys.toString(), partitions.toString(), offsets.toString(), Thread.currentThread().getName());

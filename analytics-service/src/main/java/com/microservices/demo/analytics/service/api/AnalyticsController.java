@@ -35,7 +35,7 @@ public class AnalyticsController {
                     @Content(mediaType = "application/vnd.api.v1+json",
                             schema = @Schema(implementation = AnalyticsResponseModel.class))
             }),
-            @ApiResponse(responseCode = "400", description = "Not Founde."),
+            @ApiResponse(responseCode = "400", description = "Not Found."),
             @ApiResponse(responseCode = "500", description = "Unexpected error.")
     })
     public @ResponseBody ResponseEntity<AnalyticsResponseModel> getWordCountByWord(@PathVariable @NotEmpty String word) {

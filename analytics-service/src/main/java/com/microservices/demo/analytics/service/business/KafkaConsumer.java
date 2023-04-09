@@ -10,5 +10,5 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.util.List;
 
 public interface KafkaConsumer<T extends SpecificRecordBase> {
-    void receive(List<TwitterAnalyticsAvroModel> messages, List<Long> keys, List<Integer> partitions,List<Long> offsets);
+    void receive(List<TwitterAnalyticsAvroModel> messages, List<String> keys, List<Integer> partitions,List<Long> offsets);
 }
