@@ -26,8 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AnalyticsUserDetailsService analyticsUserDetailsService;
 
-    //@Value("${security.paths-to-ignore}")
-    //private String[] pathsToIgnore;
+    @Value("${security.paths-to-ignore}")
+    private String[] pathsToIgnore;
 
     public WebSecurityConfig(
             OAuth2ResourceServerProperties oAuth2ResourceServerProperties,
@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) {
-        //webSecurity.ignoring().antMatchers(pathsToIgnore);
+        webSecurity.ignoring().antMatchers(pathsToIgnore);
     }
 
     @Bean

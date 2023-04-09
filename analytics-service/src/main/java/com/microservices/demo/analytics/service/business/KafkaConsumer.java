@@ -10,9 +10,5 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.util.List;
 
 public interface KafkaConsumer<T extends SpecificRecordBase> {
-    @KafkaListener(id = "twitterAnalyticsTopicListener", topics = "${kafka-config.topic-name}", autoStartup = "false")
-    void receive(@Payload List<TwitterAnalyticsAvroModel> messages,
-                 @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<Long> keys,
-                 @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
-                 @Header(KafkaHeaders.OFFSET) List<Long> offsets);
+    void receive(List<TwitterAnalyticsAvroModel> messages, List<Long> keys, List<Integer> partitions,List<Long> offsets);
 }
