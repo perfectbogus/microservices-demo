@@ -31,6 +31,7 @@ public class AnalyticsRepositoryImpl<T extends BaseEntity<PK>, PK> implements An
     }
 
     @Override
+    @Transactional
     public <S extends T> void batchPersist(Collection<S> entities) {
         if (entities.isEmpty()) {
             LOG.info("Not entity found to insert");
@@ -38,7 +39,7 @@ public class AnalyticsRepositoryImpl<T extends BaseEntity<PK>, PK> implements An
         }
         int batchCount = 0;
         for (S entity : entities) {
-            LOG.trace("Persisting entity with id {}", entity.getId());
+            LOG.info("Persisting entity with id {}", entity.getId());
             this.em.persist(entity);
             batchCount++;
             if (batchCount % batchSize == 0) {
@@ -53,11 +54,13 @@ public class AnalyticsRepositoryImpl<T extends BaseEntity<PK>, PK> implements An
     }
 
     @Override
+    @Transactional
     public <S extends T> S merge(S entity) {
         return this.em.merge(entity);
     }
 
     @Override
+    @Transactional
     public <S extends T> void batchMerge(Collection<S> entities) {
         if (entities.isEmpty()) {
             LOG.info("No entity found to insert");

@@ -57,6 +57,7 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
         LOG.info("{} number of message received with keys {}, partitions {} and offsets {}, sending it to database: Thread id {}",
                 messages.size(), keys.toString(), partitions.toString(), offsets.toString(), Thread.currentThread().getName());
         List<AnalyticsEntity> twitterAnalyticsEntities = avroToDbEntityModelTransformer.getEntityModel(messages);
+        LOG.info("twitterAnalyticsEntities {}", twitterAnalyticsEntities.toString());
         analyticsRepository.batchPersist(twitterAnalyticsEntities);
         LOG.info("{} number of messages send to database", twitterAnalyticsEntities.size());
     }

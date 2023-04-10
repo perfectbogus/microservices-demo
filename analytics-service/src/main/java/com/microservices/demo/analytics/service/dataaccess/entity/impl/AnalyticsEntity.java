@@ -1,10 +1,7 @@
 package com.microservices.demo.analytics.service.dataaccess.entity.impl;
 
 import com.microservices.demo.analytics.service.dataaccess.entity.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,11 +13,12 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "twitter_analytics", schema = "analytics")
+@Table(name = "twitter_analytics")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class AnalyticsEntity implements BaseEntity<UUID> {
     @Id
     @NotNull

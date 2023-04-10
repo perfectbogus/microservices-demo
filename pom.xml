@@ -230,12 +230,12 @@
 				<version>${spring-boot.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
-			<dependency>
-				<groupId>org.apache.kafka</groupId>
-				<artifactId>kafka-clients</artifactId>
-				<version>3.2.0</version>
-				<scope>compile</scope>
-			</dependency>
+<!--			<dependency>-->
+<!--				<groupId>org.apache.kafka</groupId>-->
+<!--				<artifactId>kafka-clients</artifactId>-->
+<!--				<version>3.2.0</version>-->
+<!--				<scope>compile</scope>-->
+<!--			</dependency>-->
 			<!-- https://mvnrepository.com/artifact/org.xerial.snappy/snappy-java -->
 			<dependency>
 				<groupId>org.xerial.snappy</groupId>
@@ -300,6 +300,11 @@
 				<groupId>org.apache.kafka</groupId>
 				<artifactId>kafka-streams</artifactId>
 				<version>${kafka-streams.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka-clients</artifactId>
+				<version>${kafka-clients.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
